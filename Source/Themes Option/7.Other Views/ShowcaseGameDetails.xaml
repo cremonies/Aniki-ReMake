@@ -68,6 +68,13 @@
                                     <DataTrigger Binding="{PluginStatus Plugin=NowPlaying_db4e7ade-57fb-426c-8392-60e2347a0209, Status=Installed}" Value="True">
                                         <Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=NowPlayingButton}" />
                                     </DataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding Game.PluginId}" Value="3d1ab93a-aaca-43a0-ade4-6f93ee9e5826"/>
+                                            <Condition Binding="{Binding Game.IsInstalled}" Value="False"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="FocusManager.FocusedElement" Value="{Binding ElementName=PlayFromNasButton}" />
+                                    </MultiDataTrigger>
                                 </Style.Triggers>
                             </Style>
                         </Grid.Style>
@@ -645,42 +652,38 @@
                                                     </ButtonEx.Style>
                                                 </ButtonEx>
 
-                                                <ButtonEx x:Name="NowPlayingButton"
-                                                          MinWidth="100"
+</Grid>
+
+                                                <ButtonEx x:Name="PlayFromNasButton"
+                                                          MinWidth="120"
+                                                          Height="48"
+                                                          Margin="8,0,0,8"
+                                                          VerticalAlignment="Top"
                                                           HorizontalContentAlignment="Center"
-                                                          HorizontalAlignment="Stretch"
-                                                          Command="{PluginSettings Plugin=NowPlaying,
-                                                          Path=InstallOrPlayOrOpenDialog}">
+                                                          Command="{PluginSettings Plugin=NAS Connector (Custom), Path=PlayFromNasCommand}"
+                                                          CommandParameter="{Binding Game}">
                                                     <ButtonEx.Style>
                                                         <Style BasedOn="{StaticResource GameDetailsNowPlayingButtonInGameOptions}" TargetType="ButtonEx">
-                                                            <Setter Property="Content" Value="{DynamicResource LOCPlayGame}" />
+                                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                                            <Setter Property="Content" Value="Play from NAS"/>
                                                             <Style.Triggers>
-                                                                <DataTrigger Binding="{PluginStatus Plugin=NowPlaying_db4e7ade-57fb-426c-8392-60e2347a0209, Status=Installed}"
-                                                                             Value="False">
-                                                                    <!-- Hide button if not installed -->
-                                                                    <Setter Property="Visibility" Value="Collapsed" />
-                                                                </DataTrigger>
-                                                                <DataTrigger Binding="{Binding Game.IsInstalled}" Value="False">
-                                                                    <Setter Property="Content" Value="{DynamicResource LOCInstallGame}" />
-                                                                </DataTrigger>
-                                                                <DataTrigger Binding="{Binding Game.IsInstalling}" Value="True">
-                                                                    <Setter Property="Content" Value="{DynamicResource LOCSetupRunning}" />
-                                                                </DataTrigger>
+                                                                <MultiDataTrigger>
+                                                                    <MultiDataTrigger.Conditions>
+                                                                        <Condition Binding="{Binding Game.PluginId}" Value="3d1ab93a-aaca-43a0-ade4-6f93ee9e5826"/>
+                                                                        <Condition Binding="{Binding Game.IsInstalled}" Value="False"/>
+                                                                    </MultiDataTrigger.Conditions>
+                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                </MultiDataTrigger>
                                                                 <DataTrigger Binding="{Binding Game.IsLaunching}" Value="True">
-                                                                    <Setter Property="Content" Value="{DynamicResource LOCGameLaunching}" />
+                                                                    <Setter Property="Content" Value="{DynamicResource LOCGameLaunching}"/>
                                                                 </DataTrigger>
                                                                 <DataTrigger Binding="{Binding Game.IsRunning}" Value="True">
-                                                                    <Setter Property="Content" Value="Now Playing" />
-                                                                </DataTrigger>
-                                                                <DataTrigger Binding="{Binding Game.IsUninstalling}" Value="True">
-                                                                    <Setter Property="Content" Value="{DynamicResource LOCUninstalling}" />
+                                                                    <Setter Property="Content" Value="Now Playing"/>
                                                                 </DataTrigger>
                                                             </Style.Triggers>
                                                         </Style>
                                                     </ButtonEx.Style>
                                                 </ButtonEx>
-
-                                            </Grid>
 
                                             <ButtonEx x:Name="DuplicateHiderVersionsButton"
                                                       Height="50"

@@ -1328,6 +1328,22 @@
                                               Content="{DynamicResource LOCExtras}"
                                               Command="{PluginSettings Plugin=AnikiHelper, Path=OpenQuickAccessFeaturesCommand}"/>
 
+                                    <ButtonEx x:Name="QuickEndStreamButton"
+                                              Tag="&#xE7E8;"
+                                              Content="End Stream"
+                                              Command="{PluginSettings Plugin=Vibepollo Stream Control, Path=EndStreamCommand}">
+                                        <ButtonEx.Style>
+                                            <Style TargetType="ButtonEx" BasedOn="{StaticResource QuickAccessButtonStyle}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{PluginSettings Plugin=Vibepollo Stream Control, Path=IsStreaming}" Value="True">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </ButtonEx.Style>
+                                    </ButtonEx>
+
 
                                     <!-- SEPARATOR -->
                                     <Border Height="1"
