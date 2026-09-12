@@ -1562,6 +1562,13 @@
           MainBackgroundMode:
             Type: String
             Value: Filter
+      Platform:
+        Name: Selected platform background
+        LocKey: LOCBackgroundModePlatform
+        Constants:
+          MainBackgroundMode:
+            Type: String
+            Value: Platform
       None:
         Name: No background
         LocKey: LOCBackgroundModeNone
