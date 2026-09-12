@@ -1328,7 +1328,6 @@
     <sys:String x:Key="LOCBackgroundModeGame">Game backgrounds</sys:String>
     <sys:String x:Key="LOCBackgroundModeVisualPack">Visual Pack background</sys:String>
     <sys:String x:Key="LOCBackgroundModeFilter">Selected filter background</sys:String>
-    <sys:String x:Key="LOCBackgroundModePlatform">Selected platform background</sys:String>
     <sys:String x:Key="LOCBackgroundModeNone">No background</sys:String>
     <sys:String x:Key="LOCUseGameBackgroundOnDetails">Use game background in Game Details</sys:String>
     <sys:String x:Key="LOCUseGameBackgroundOnDetailsDesc">Uses the selected game's background in Game Details instead of the Main View background setting.</sys:String>

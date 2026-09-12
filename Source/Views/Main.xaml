@@ -8373,10 +8373,6 @@
                                                     <Setter Property="Visibility" Value="Visible"/>
                                                 </DataTrigger>
 
-                                                <DataTrigger Binding="{PluginSettings Plugin=AnikiHelper, Path=Options[MainBackgroundMode]}" Value="Platform">
-                                                    <Setter Property="Visibility" Value="Visible"/>
-                                                </DataTrigger>
-
                                                 <!-- Crossfade to the selected game's background in details. -->
                                                 <MultiDataTrigger>
                                                     <MultiDataTrigger.Conditions>
@@ -8665,21 +8661,6 @@
                                                 <Setter Property="AnimationEnabled" Value="False"/>
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{PluginSettings Plugin=AnikiHelper, Path=Options[MainBackgroundMode]}" Value="Filter">
-                                                        <Setter Property="Visibility" Value="Visible"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </FadeImage.Style>
-                                    </FadeImage>
-
-                                    <!-- Platform background replaces the normal (per-game) background. -->
-                                    <FadeImage x:Name="PlatformBackgroundImage" Source="{PluginSettings Plugin=AnikiHelper, Path=ActivePlatformBackgroundPath}" SourceUpdateDelay="0" Stretch="UniformToFill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsHitTestVisible="False">
-                                        <FadeImage.Style>
-                                            <Style TargetType="FadeImage">
-                                                <Setter Property="Visibility" Value="Collapsed"/>
-                                                <Setter Property="AnimationEnabled" Value="False"/>
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{PluginSettings Plugin=AnikiHelper, Path=Options[MainBackgroundMode]}" Value="Platform">
                                                         <Setter Property="Visibility" Value="Visible"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
