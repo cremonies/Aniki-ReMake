@@ -1,7 +1,7 @@
 # Aniki ReMake theme packaging script
 # Run from the repo root: .\build.ps1
 #
-# A theme has no code to compile — it's just XAML/YAML files — so this doesn't
+# A theme has no code to compile - it's just XAML/YAML files - so this doesn't
 # "build" anything in the usual sense. It packages the Source folder into a .pthm
 # file (Playnite's theme package format, same idea as a .pext for extensions), so
 # you install it the same way every time via Playnite -> Add-ons -> Install add-on
@@ -35,4 +35,4 @@ if (Test-Path $pthm) { Remove-Item $pthm -Force }
 Compress-Archive -Path "$sourceDir\*" -DestinationPath "$pthm.zip" -Force
 Move-Item "$pthm.zip" $pthm -Force
 
-Write-Host "Created $pthm — install it via Playnite -> Add-ons -> Install add-on from file." -ForegroundColor Green
+Write-Host "Created $pthm - install it via Playnite -> Add-ons -> Install add-on from file." -ForegroundColor Green
